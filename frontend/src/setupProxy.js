@@ -31,7 +31,7 @@ module.exports = function (app) {
   app.use(
     "/users",
     createProxyMiddleware({
-      target: "http://localhost:8000",
+      target: "http://localhost:7999",
       changeOrigin: true,
       followRedirects: true,
     })

@@ -1,4 +1,5 @@
 // Import jsonwebtoken
+require("dotenv").config({ path: "/etc/todo-app.env" });
 const jwt = require("jsonwebtoken");
 
 // Setup basic middleware for token split and check to
@@ -10,7 +11,7 @@ function jwtMiddleware(req, res, next) {
 
   // Try catch our token extract attempt using our secretkey
   try {
-    const payload = jwt.verify(tokenExtract, "secretkey");
+    const payload = jwt.verify(tokenExtract, process.env.SECRET_KEY);
     if (payload.name.endsWith("@gmail.com")) {
       req.payload = {
         tokenInfo: payload,
@@ -50,7 +51,7 @@ function jwtModifyMiddleware(req, res, next) {
       });
     }
 
-    const payload = jwt.verify(tokenExtract, "secretkey");
+    const payload = jwt.verify(tokenExtract, process.env.SECRET_KEY);
     if (payload.name.endsWith("@gmail.com")) {
       req.payload = {
         tokenInfo: payload,

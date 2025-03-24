@@ -1,4 +1,5 @@
 // Setup express, cors, and mongoose
+require("dotenv").config({ path: "/etc/todo-app.env" });
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -10,7 +11,7 @@ const registerRoute = require("./routes/registerRoute");
 
 // Start app and set port
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 
 // MongoDB uri
 const uri = process.env.MONGO_URI;

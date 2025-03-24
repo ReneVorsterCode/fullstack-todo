@@ -125,6 +125,12 @@ function App() {
             setUserToken={setUserToken}
           ></LoginPage>
         </header>
+        <p>
+          Please note this app is not designed for security. Passwords are not
+          encrypted when stored on MongoDB, so please DO NOT use real gmail
+          accounts and password combinations. For testing purposes you can use
+          Test1@gmail.com as a username and pass1 as a password.
+        </p>
       </div>
     );
   } else {
